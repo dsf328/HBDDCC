@@ -1,0 +1,118 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fce4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* ข้อความอยู่ข้างหน้า */
+    position: relative;
+}
+
+/* ข้อความ */
+h1 {
+    color: #e91e63;
+    font-size: 3em;
+}
+p {
+    color: #333;
+    font-size: 1.5em;
+}
+
+/* สไตล์รูปภาพ */
+.floating-image {
+    position: fixed; /* ให้อิสระจาก container */
+    width: 100px;
+    height: auto;
+    opacity: 0.4;
+    z-index: 1; /* ให้อยู่ต่ำกว่าข้อความ */
+    pointer-events: none; /* ป้องกันไม่ให้ขัดขวางการคลิก */
+    animation: floatAnimation 6s ease-in-out infinite alternate;
+}
+
+/* Animation สำหรับรูป */
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(50px, -60px) rotate(15deg);
+    }
+    50% {
+        transform: translate(-50px, 40px) rotate(-15deg);
+    }
+    75% {
+        transform: translate(30px, -30px) rotate(10deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+button {
+    position: relative;
+    background: linear-gradient(135deg, #ff4081, #ff80ab);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* สร้างเอฟเฟกต์สไลด์ */
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease-in-out;
+}
+
+/* เมื่อ hover ให้แถบสไลด์จากซ้ายไปขวา */
+button:hover::before {
+    left: 100%;
+}
+
+/* เอฟเฟกต์ขยายและเงา */
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.5);
+}
+/* ตั้งค่าให้ canvas คลุมเต็มหน้าจอ */
+#fireworksCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* ให้คลิกทะลุได้ */
+    z-index: 0; /* ให้พลุอยู่ด้านหลัง */
+}
+.next-image {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 20px auto;
+}
+
+

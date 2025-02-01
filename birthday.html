@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>HAPPY BIRTHDAY, KUN SOMWIPA! 🎉</h1>
+        <p>ขอให้สุขภาพร่างกายแข็งแรง ได้กินของอร่อยเยอะๆ ได้คร้าบบบ 🎁</p> 
+        <p>จากน้องพลอย อดีตลูกน้องพี่ตั๊กครับผม!</p> 
+    </div>
+
+    <!-- รูปภาพที่ลอยไปลอยมา -->
+    <img src="myj1irypvwex.webp" alt="Floating Image" class="floating-image">
+    <img src="myj1irypvwex.webp" alt="Floating Image" class="floating-image">
+    <img src="myj1irypvwex.webp" alt="Floating Image" class="floating-image">
+    <img src="myj1irypvwex.webp" alt="Floating Image" class="floating-image">
+    <img src="myj1irypvwex.webp" alt="Floating Image" class="floating-image">
+
+    <!-- ปุ่มไปยังหน้าถัดไป -->
+    <button onclick="goToNextPage()">ไปยังหน้าถัดไป</button>
+
+    <script>
+        // เพิ่มการตรวจสอบว่า DOM โหลดเสร็จแล้ว
+        document.addEventListener("DOMContentLoaded", function() {
+            // ตรวจสอบและแสดงปุ่ม
+            const button = document.querySelector('button');
+            if (button) {
+                button.style.display = 'block';  // แสดงปุ่ม
+            }
+        });
+
+        // ฟังก์ชันไปยังหน้าถัดไป
+        function goToNextPage() {
+            window.location.href = 'nextpage.html';  // เปลี่ยนเป็น URL ของหน้าถัดไปที่ต้องการ
+        }
+    </script>
+
+    <!-- เพิ่ม canvas สำหรับแสดงพลุ -->
+    <canvas id="fireworksCanvas"></canvas>
+
+</body>  
+</html>
